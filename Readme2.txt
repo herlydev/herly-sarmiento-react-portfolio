@@ -4,4 +4,7 @@ from the list and then run: npm install
 
 * another method to add a dependency "moment" is: npm i moment  or mpn install mement
 
+* app.js is the component, bootstrap.js injects the code into /static/index.html
+
+* "favicon" is the little logo next to google tab
 * 
