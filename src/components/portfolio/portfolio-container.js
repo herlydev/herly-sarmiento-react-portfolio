@@ -7,11 +7,19 @@ export default class PortfolioContainer extends Component {
         super()
         console.log("Portfolio container has rendered")
     }
+    portfolioItem() {
+        const data = ["Quip", "Eventbrite", "Ministry Safe", "SwingAway"];
+
+        return data.map(items => {
+            return <PortfolioItem />
+        })
+    }
+
     render() {
         return (
             <div >
                 <h2>Portfolio items go here...</h2>
-                <PortfolioItem/>
+                {this.portfolioItem()}
             </div>
         )
     }
