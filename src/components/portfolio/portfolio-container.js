@@ -10,9 +10,9 @@ export default class PortfolioContainer extends Component {
     portfolioItem() {
         const data = ["Quip", "Eventbrite", "Ministry Safe", "SwingAway"];
 
-        return data.map(items => {
-            return <PortfolioItem />
-        })
+        return data.map(item => {
+            return <PortfolioItem title={item} url={"google.com"} />;
+        });
     }
 
     render() {
