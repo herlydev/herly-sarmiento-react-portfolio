@@ -8,7 +8,7 @@ export default class PortfolioContainer extends Component {
 
         this.state = {
             pageTitle: "Welcome to my portforlio",
-            isLoading: true,
+            isLoading: false,
             data: [
                 {tittle: "Quip", category: "eCommerce"},
                 {title: "Eventbrite", category: "Scheduling"}, 
