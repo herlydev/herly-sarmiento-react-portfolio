@@ -4,7 +4,8 @@ import PortfolioItem from "./portfolio-item"
 
 export default class PortfolioContainer extends Component {
     constructor() {
-        super()
+        super();
+
         this.state = {
             pageTitle: "Welcome to my portforlio",
             data: [
@@ -14,18 +15,28 @@ export default class PortfolioContainer extends Component {
                 {title: "SwingAway"}
             ]
         };
+
+        this.handlePageTitleUpdate = this.handlePageTitleUpdate.bind(this)
     }
     portfolioItem() {
         return this.state.data.map(item => {
-            return <PortfolioItem title={item.title} />;
+            return <PortfolioItem title={item.title} url={item.url} />;
         });
     }
 
+    handlePageTitleUpdate() {
+        this.setState({
+            pageTitle: "Something else"
+        }) 
+    }
     render() {
         return (
             <div >
                 <h2>{this.state.pageTitle}</h2>
                 {this.portfolioItem()}
+
+                <hr/>
+                <button onClick={this.handlePageTitleUpdate}>Change Title</button>
             </div>
         )
     }
