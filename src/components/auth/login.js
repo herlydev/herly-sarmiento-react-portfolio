@@ -10,12 +10,12 @@ export default class Auth extends Component {
       password: "",
       errorText: ""
     };
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    console.log("hanle change");
     this.setState({
       [event.target.name]: event.target.value,
       errorText: ""
@@ -35,18 +35,20 @@ export default class Auth extends Component {
         { withCredentials: true }
       )
       .then(response => {
-        if (response.data.sttus === "created") {
-          console.log("You can come in");
+        if (response.data.status === "created") {
+          this.props.handleSuccessfulAuth();
         } else {
           this.setState({
             errorText: "Wrong email or password"
           });
+          this.props.handleUnsuccessfulAuth();
         }
       })
       .catch(error => {
         this.setState({
           errorText: "An error occurred"
         });
+        this.props.handleUnsuccessfulAuth();
       });
 
     event.preventDefault();
