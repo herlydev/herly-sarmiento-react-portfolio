@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class Auth extends Component {
+export default class Login extends Component {
   constructor(props) {
-    super();
+    super(props);
 
     this.state = {
       email: "",
@@ -57,18 +57,19 @@ export default class Auth extends Component {
   render() {
     return (
       <div>
-        <h1>Login to Acces your Dashboard</h1>
+        <h1>LOGIN TO ACCESS YOUR DASHBOARD</h1>
+
         <div>{this.state.errorText}</div>
 
         <form onSubmit={this.handleSubmit}>
           <input
             type="email"
             name="email"
-            placeholder="Youe email"
+            placeholder="Your email"
             value={this.state.email}
             onChange={this.handleChange}
-            // autoComplete= false
           />
+
           <input
             type="password"
             name="password"
