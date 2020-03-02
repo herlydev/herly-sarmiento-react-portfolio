@@ -20,7 +20,7 @@ export default class PortfolioManager extends Component {
 
   handleSuccessfulFormSubmission(portfolioItem) {
     this.setState({
-      portfolioItems: [portfolioItem].concat(this.state.portfolioItem)
+      portfolioItems: [portfolioItem].concat(this.state.portfolioItems)
     });
   }
 
