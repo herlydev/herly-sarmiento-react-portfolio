@@ -4,10 +4,11 @@ import axios from "axios";
 export default class PortfolioForm extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       name: "",
       description: "",
-      category: "",
+      category: "eCommerce",
       position: "",
       url: "",
       thumb_image: "",
@@ -42,7 +43,7 @@ export default class PortfolioForm extends Component {
         console.log("response", response);
       })
       .catch(error => {
-        console.log("portfolio form handleSUbmit error", error);
+        console.log("portfolio form handleSubmit error", error);
       });
     event.preventDefault();
   }
@@ -86,7 +87,7 @@ export default class PortfolioForm extends Component {
             </select>
           </div>
           <div>
-            <input
+            <textarea
               type="text"
               name="description"
               placeholder="Description"
