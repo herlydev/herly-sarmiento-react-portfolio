@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import BlogItem from "../blog/blog-item";
 
 class Blog extends Component {
   constructor() {
     super();
+
     this.state = {
-      blogitems: []
+      blogItems: []
     };
 
     this.getBlogItems = this.getBlogItems.bind(this);
@@ -18,21 +20,24 @@ class Blog extends Component {
         withCredentials: true
       })
       .then(response => {
-        this.setState({ blogitems: response.data.portfolio_blogs });
-        // console.log("response", response);
+        this.setState({
+          blogItems: response.data.portfolio_blogs
+        });
       })
       .catch(error => {
         console.log("getBlogItems error", error);
       });
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.getBlogItems();
   }
+
   render() {
-    const blogRecords = this.state.blogitems.map(blogItem => {
-      return <h1 key={blogItem.id}>{blogItem.title}</h1>;
+    const blogRecords = this.state.blogItems.map(blogItem => {
+      return <BlogItem key={blogItem.id} blogItem={blogItem} />;
     });
+
     return <div>{blogRecords}</div>;
   }
 }
@@ -40,4 +45,4 @@ class Blog extends Component {
 export default Blog;
 
 // this is working code for versions less than ver 17
-// react v17 and above is called "unsafe"
+// react v17 and above is called "unsafe_componentwillmount"
