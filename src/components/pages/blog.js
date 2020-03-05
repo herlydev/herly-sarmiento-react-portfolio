@@ -18,8 +18,8 @@ class Blog extends Component {
         withCredentials: true
       })
       .then(response => {
-        // console.log("response", response);
         this.setState({ blogitems: response.data.portfolio_blogs });
+        // console.log("response", response);
       })
       .catch(error => {
         console.log("getBlogItems error", error);
@@ -30,16 +30,14 @@ class Blog extends Component {
     this.getBlogItems();
   }
   render() {
-    return (
-      <div>
-        <h2>Blog</h2>
-
-        <div>
-          <Link to="/about-me">Read more about myself</Link>
-        </div>
-      </div>
-    );
+    const blogRecords = this.state.blogitems.map(blogItem => {
+      return <h1 key={blogItem.id}>{blogItem.title}</h1>;
+    });
+    return <div>{blogRecords}</div>;
   }
 }
 
 export default Blog;
+
+// this is working code for versions less than ver 17
+// react v17 and above is called "unsafe"
