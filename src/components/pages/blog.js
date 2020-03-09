@@ -26,7 +26,6 @@ class Blog extends Component {
       this
     );
   }
-  }
 
   handleSuccessfulNewBlogSubmission(blog) {
     this.setState({
@@ -105,14 +104,16 @@ class Blog extends Component {
       <div className="blog-container">
         <BlogModal
           handleSuccessfulNewBlogSubmission={
-          this.handleSuccessfulNewBlogSubmission
-          } 
+            this.handleSuccessfulNewBlogSubmission
+          }
           handleModalClose={this.handleModalClose}
           modalIsOpen={this.state.blogModalIsOpen}
         />
 
         <div className="new-blog-link">
-          <a onClick={this.handleNewBlogClick}>Open Modal!</a>
+          <a onClick={this.handleNewBlogClick}>
+            <FontAwesomeIcon icon="plus-circle" />
+          </a>
         </div>
 
         <div className="content-container">{blogRecords}</div>
