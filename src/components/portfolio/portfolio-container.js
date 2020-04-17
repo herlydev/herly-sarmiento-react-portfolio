@@ -10,7 +10,7 @@ export default class PortfolioContainer extends Component {
     this.state = {
       pageTitle: "Welcome to my portfolio",
       isLoading: false,
-      data: []
+      data: [],
     };
 
     this.handleFilter = this.handleFilter.bind(this);
@@ -27,26 +27,26 @@ export default class PortfolioContainer extends Component {
   getPortfolioItems(filter = null) {
     axios
       .get("https://herlysarmiento.devcamp.space/portfolio/portfolio_items")
-      .then(response => {
+      .then((response) => {
         if (filter) {
           this.setState({
-            data: response.data.portfolio_items.filter(item => {
+            data: response.data.portfolio_items.filter((item) => {
               return item.category === filter;
-            })
+            }),
           });
         } else {
           this.setState({
-            data: response.data.portfolio_items
+            data: response.data.portfolio_items,
           });
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   }
 
   portfolioItems() {
-    return this.state.data.map(item => {
+    return this.state.data.map((item) => {
       return <PortfolioItem key={item.id} item={item} />;
     });
   }
@@ -63,23 +63,17 @@ export default class PortfolioContainer extends Component {
     return (
       <div className="homepage-wrapper">
         <div className="filter-links">
-          <button
-            className="btn"
-            onClick={() => this.handleFilter("eCommerce")}
-          >
-            eCommerce
+          <button className="btn" onClick={() => this.handleFilter("React")}>
+            React
+          </button>
+          <button className="btn" onClick={() => this.handleFilter("Python")}>
+            Python
           </button>
           <button
             className="btn"
-            onClick={() => this.handleFilter("Scheduling")}
+            onClick={() => this.handleFilter("JavaScript_HTML_CSS")}
           >
-            Scheduling
-          </button>
-          <button
-            className="btn"
-            onClick={() => this.handleFilter("Enterprise")}
-          >
-            Enterprise
+            JavaScript HTML CSS
           </button>
           <button
             className="btn"

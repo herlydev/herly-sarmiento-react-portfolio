@@ -15,7 +15,7 @@ export default class BlogForm extends Component {
       content: "",
       featured_image: "",
       apiUrl: "https://herlysarmiento.devcamp.space/portfolio/portfolio_blogs",
-      apiAction: "post"
+      apiAction: "post",
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -37,10 +37,10 @@ export default class BlogForm extends Component {
         `https://api.devcamp.space/portfolio/delete-portfolio-blog-image/${this.props.blog.id}?image_type=${imageType}`,
         { withCredentials: true }
       )
-      .then(response => {
+      .then((response) => {
         this.props.handleFeaturedImageDelete();
       })
-      .catch(error => {
+      .catch((error) => {
         console.log("deleteImage error", error);
       });
   }
@@ -53,7 +53,7 @@ export default class BlogForm extends Component {
         blog_status: this.props.blog.blog_status,
         content: this.props.blog.content,
         apiUrl: `https://herlysarmiento.devcamp.space/portfolio/portfolio_blogs/${this.props.blog.id}`,
-        apiAction: "patch"
+        apiAction: "patch",
       });
     }
   }
@@ -62,20 +62,20 @@ export default class BlogForm extends Component {
     return {
       iconFiletypes: [".jpg", ".png"],
       showFiletypeIcon: true,
-      postUrl: "https://httpbin.org/post"
+      postUrl: "https://httpbin.org/post",
     };
   }
 
   djsConfig() {
     return {
       addRemoveLinks: true,
-      maxFiles: 1
+      maxFiles: 1,
     };
   }
 
   handleFeaturedImageDrop() {
     return {
-      addedfile: file => this.setState({ featured_image: file })
+      addedfile: (file) => this.setState({ featured_image: file }),
     };
   }
 
@@ -105,9 +105,9 @@ export default class BlogForm extends Component {
       method: this.state.apiAction,
       url: this.state.apiUrl,
       data: this.buildForm(),
-      withCredentials: true
+      withCredentials: true,
     })
-      .then(response => {
+      .then((response) => {
         if (this.state.featured_image) {
           this.featuredImageRef.current.dropzone.removeAllFiles();
         }
@@ -116,7 +116,7 @@ export default class BlogForm extends Component {
           title: "",
           blog_status: "",
           content: "",
-          featured_image: ""
+          featured_image: "",
         });
 
         if (this.props.editMode) {
@@ -128,7 +128,7 @@ export default class BlogForm extends Component {
           );
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.log("handleSubmit for blog error", error);
       });
 
@@ -137,7 +137,7 @@ export default class BlogForm extends Component {
 
   handleChange(event) {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   }
 

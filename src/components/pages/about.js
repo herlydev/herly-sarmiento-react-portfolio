@@ -1,7 +1,8 @@
 import React from "react";
-import profilePicture from "../../../static/assets/images/bio/HerlySarmiento2020.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import profilePicture from "../../../static/assets/images/bio/HerlySarmiento2020AAA.jpg";
 
-export default function() {
+export default function () {
   return (
     <div className="content-page-wrapper">
       <div
@@ -9,27 +10,58 @@ export default function() {
         style={{
           background: "url(" + profilePicture + ") no-repeat",
           backgroundSize: "cover",
-          backgroundPosition: "center"
+          backgroundPosition: "center",
         }}
       />
       <div className="right-column">
-        Maecenas faucibus mollis interdum. Integer posuere erat a ante venenatis
-        dapibus posuere velit aliquet. Sed posuere consectetur est at lobortis.
-        Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-        Aenean lacinia bibendum nulla sed consectetur. Maecenas sed diam eget
-        risus varius blandit sit amet non magna. Morbi leo risus, porta ac
-        consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida
-        at eget metus. Donec sed odio dui. Cras mattis consectetur purus sit
-        amet fermentum. Etiam porta sem malesuada magna mollis euismod. Nulla
-        vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque
-        ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non
-        commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec
-        elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur
-        et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-        commodo cursus magna, vel scelerisque nisl consectetur et. Nullam quis
-        risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac
-        consectetur ac, vestibulum at eros. Vestibulum id ligula porta felis
-        euismod semper.
+        <div className="about-content-wrapper">
+          <div className="about-header">SUMMARY</div>
+          <div className="about-text">
+            Business professional with education and working experience in
+            Management, Customer Service, Operations, Marketing, and Software
+            Development. Looking for opportunities to advance my business
+            analysis and Front-end/Back-end development skills.
+          </div>
+          <div>
+            I enjoy making new memories with my family. Some of my favorite
+            hobbies are traveling around the world meeting people, searching for
+            the best beach (I have a collection of about a dozen sand bottles),
+            screaming at a soccer game, playing piano and mandolin by ear,
+            dancing, cooking peruvian food, movies, and videogames.
+          </div>
+          <div className="about-header">SKILLS</div>
+          <div className="about-text">
+            <ul>
+              <li>
+                Technical Skills: React, HTML5, CSS, JavaScript, Python, Flask,
+                SQL database, MongoDB, Git, UX, UML, Cypress.io, Excel, Word,
+                Sabre.
+              </li>
+              <li>
+                Soft Skills: Leadership, communication, integrity, strategy,
+                planning, teamwork, training, innovative, problem-solving,
+                decision-making, passion, building relationships, presentations,
+                fully bilingual Spanish.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <a
+            className="text"
+            href="https://www.linkedin.com/in/herlysarmiento/"
+            target="_blank"
+          >
+            Linkedin
+          </a>
+          <a
+            className="text"
+            href="https://drive.google.com/file/d/18sJVZOGl-V80n706wJfhnT6zRAQfTOdi/view?usp=sharing"
+            target="_blank"
+          >
+            Resume
+          </a>
+        </div>
       </div>
     </div>
   );
